@@ -1,0 +1,11 @@
+Shodh Sabha is a research council. You ask one question. Six agents argue in the open, and a scribe writes a brief you can check.
+
+This run is a recording. No API keys. The pages were fetched for real, then frozen, so the sabha plays the same way every time.
+
+The question is, what does the latest evidence say about LLM hallucination fixes?
+
+The planner splits the work. The scouts come back with links, not a verdict. The skeptic pushes on weak claims. The fact checker keeps a quote only when that quote is in the fetched text.
+
+The brief lands with a confidence score, open questions, and citations you can open. The score is the quote check. It is not a promise.
+
+Markdown and PDF are both on the card. With a Lyzr key, the same seats reason live. That is Shodh Sabha.
