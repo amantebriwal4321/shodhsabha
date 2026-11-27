@@ -1,0 +1,23 @@
+{
+  "name": "Citation discipline",
+  "slug": "citation-discipline",
+  "license": "MIT",
+  "summary": "A sabha skill: no claim enters the brief unless a fetched page contains the quote.",
+  "supportedAgents": ["ShodhSabha Scribe", "ShodhSabha Fact-checker", "AdaL", "Lyzr"],
+  "prerequisites": [
+    "A packet of fetched pages with titles and URLs",
+    "A question the pages are supposed to answer"
+  ],
+  "steps": [
+    "List claims that quote a fetched page.",
+    "Drop any sentence whose number or URL is not in that packet.",
+    "Mark encyclopedia pages as scope, not as the latest study.",
+    "Write the brief with only the surviving claims and say what is still open."
+  ],
+  "limitations": [
+    "The skill does not browse. Another agent has to fetch.",
+    "A matching quote can still be the wrong source for the decision.",
+    "Publishing this folder on Finch needs a wallet signature in Listing Center. The file here is the package."
+  ],
+  "instructions": "Cite only URLs and numbers that appear in the fetched packet. If a page does not answer the question, say so in one line and leave it out of the verdict. Confidence comes from how many quotes survived the check, not from how fluent the prose is."
+}

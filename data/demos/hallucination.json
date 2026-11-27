@@ -1,0 +1,206 @@
+{
+  "id": "hallucination",
+  "question": "What does the latest evidence say about LLM hallucination fixes?",
+  "capturedAt": "2026-11-27T06:55:45.959Z",
+  "label": "Recorded run. Keyless gather over arXiv, OpenAlex, Wikipedia, and DuckDuckGo. No model call.",
+  "events": [
+    {
+      "type": "meta",
+      "mode": "keyless",
+      "provider": "none",
+      "label": "Keyless gather. Public sources, no model call.",
+      "question": "What does the latest evidence say about LLM hallucination fixes?"
+    },
+    {
+      "type": "message",
+      "message": {
+        "messageId": "4acab7d2-de3f-4d35-b729-8a77236fdf5f",
+        "contextId": "930bbcf8-b437-40b1-9cf2-6698d21e423c",
+        "taskId": "planner->web_scout",
+        "from": "planner",
+        "to": "web_scout",
+        "kind": "task",
+        "text": "Question in the sabha: \"What does the latest evidence say about LLM hallucination fixes?\"\n\nI am splitting it into three lines, and I want quotes, not a vibe.\nLine A, scope. What would even count as an answer.\nLine B, evidence. Papers and reference pages, each with a URL.\nLine C, limits. What a page fails to show.\n\nWeb Scout, take the open web for A and C.\nPaper Scout, take arXiv and OpenAlex for B.\nDo not upgrade a snippet into a verdict. Skeptic gets the next word.",
+        "createdAt": "2026-11-27T06:55:44.293Z"
+      }
+    },
+    {
+      "type": "message",
+      "message": {
+        "messageId": "b8ebdb59-47c6-41d8-84aa-ec5e02ff7214",
+        "contextId": "930bbcf8-b437-40b1-9cf2-6698d21e423c",
+        "taskId": "web_scout->skeptic",
+        "from": "web_scout",
+        "to": "skeptic",
+        "kind": "finding",
+        "text": "Web Scout: I pulled 3 sources. These are claims, not a conclusion.\n[1] How to Reduce LLM Hallucinations: Proven Fixes (2026) - guvi.in (web)\nhttps://www.guvi.in/blog/how-to-reduce-llm-hallucinations/\n\"Learn how to reduce LLM hallucinations with proven techniques like RAG, prompt engineering, and verification to keep AI output accurate and reliable.\"\n[2] How to Reduce Hallucinations in LLM Outputs - LLM Guides (web)\nhttps://llmguides.ai/learn/reduce-hallucinations/\n\"Learn 7 proven techniques to reduce LLM hallucinations and verify output accuracy - from temperature settings and RAG to verification checklists.\"\n[3] Key Strategies to Minimize LLM Hallucinations: Expert Insights - Turing (web)\nhttps://www.turing.com/resources/minimize-llm-hallucinations-strategy\n\"Discover the latest strategies to address LLM hallucinations effectively, boosting model accuracy and reliability. Our guide provides a detailed approach to overcoming common LLM challenges.\"\nPacket is ready for the Skeptic.",
+        "createdAt": "2026-11-27T06:55:45.958Z"
+      }
+    },
+    {
+      "type": "message",
+      "message": {
+        "messageId": "1d934ff5-2cbd-4bcc-95a5-a388631cd671",
+        "contextId": "930bbcf8-b437-40b1-9cf2-6698d21e423c",
+        "taskId": "paper_scout->skeptic",
+        "from": "paper_scout",
+        "to": "skeptic",
+        "kind": "finding",
+        "text": "Paper Scout: I pulled 2 sources. These are claims, not a conclusion.\n[1] Fixing Reference Hallucinations of LLMs (OpenAlex, 2024)\nhttps://doi.org/10.31219/osf.io/u38w4\n\"In October and November 2024, using popular LLMs like OpenAI ChatGPT (4 and below), Azure OpenAI and its Copilot instantiations, Google Gemini and GenAI LLM tuned for scientific papers like Zendy, asking a question and references produces with every LLM fake references, well constructed, but with different titles or authors than the web or journal reference actually associated to the citation, or sometimes totally i…\"\n[2] HALLUCANA: Fixing LLM Hallucination with A Canary Lookahead (OpenAlex, 2025)\nhttps://doi.org/10.18653/v1/2025.findings-naacl.12\n\"In this paper, we present HALLUCANA, a canary lookahead to detect and correct factual hallucinations of Large Language Models (LLMs) in long-form generation. HALLUCANA detects and intervenes as soon as traces of hallucination emerge, during and even before generation. To support timely detection, we exploit the internal factuality representation in the LLM hidden space, where we investigate various proxies to the LL…\"\narXiv unavailable (429 from export.arxiv.org).",
+        "createdAt": "2026-11-27T06:55:45.958Z"
+      }
+    },
+    {
+      "type": "message",
+      "message": {
+        "messageId": "58254ce7-1011-4b06-bffd-9a96fae3b5fd",
+        "contextId": "930bbcf8-b437-40b1-9cf2-6698d21e423c",
+        "taskId": "skeptic->fact_checker",
+        "from": "skeptic",
+        "to": "fact_checker",
+        "kind": "challenge",
+        "text": "Holding the claims up to the question.\n\nThe titles sit close to the question. I still want the quotes checked before anyone writes a verdict.\n\nFact-checker, verify the quotes before the Scribe writes.",
+        "createdAt": "2026-11-27T06:55:45.958Z"
+      }
+    },
+    {
+      "type": "message",
+      "message": {
+        "messageId": "2c041a0d-6413-4558-a46e-3303bbee8dc2",
+        "contextId": "930bbcf8-b437-40b1-9cf2-6698d21e423c",
+        "taskId": "fact_checker->scribe",
+        "from": "fact_checker",
+        "to": "scribe",
+        "kind": "verdict",
+        "text": "Quote check against the fetched text.\n\nc1 verified. Excerpt is inside the fetched text. How to Reduce LLM Hallucinations: Proven Fixes (2026) - guvi.in.\nc2 verified. Excerpt is inside the fetched text. How to Reduce Hallucinations in LLM Outputs - LLM Guides.\nc3 verified. Excerpt is inside the fetched text. Key Strategies to Minimize LLM Hallucinations: Expert Insights - Turing.\nc4 verified. Excerpt is inside the fetched text. Fixing Reference Hallucinations of LLMs.\nc5 verified. Excerpt is inside the fetched text. HALLUCANA: Fixing LLM Hallucination with A Canary Lookahead.\n\nVerified 5, partial 0, rejected 0.\nScribe, cite verified and partial only. Rejected quotes stay out of the brief.",
+        "createdAt": "2026-11-27T06:55:45.959Z"
+      }
+    },
+    {
+      "type": "message",
+      "message": {
+        "messageId": "57af6880-6178-48f1-866f-a8fe25f44981",
+        "contextId": "930bbcf8-b437-40b1-9cf2-6698d21e423c",
+        "taskId": "scribe->user",
+        "from": "scribe",
+        "to": "user",
+        "kind": "brief",
+        "text": "Brief is in. Confidence 90 out of 100, from the quote check, not from my mood.\n\nThe fetched pages support a narrow reading. Learn how to reduce LLM hallucinations with proven techniques like RAG, prompt engineering, and verification to keep AI output accurate and reliable. Learn 7 proven techniques to reduce LLM hallucinations and verify output accuracy - from temperature settings and RAG to verification checklists. Discover the latest strategies to address LLM hallucinations effectively, boosting model accuracy and reliability. The Skeptic held this back: The titles sit close to the question. I still want the quotes checked before anyone writes a verdict. They do not, on their own, close the question.\n\nOpen questions: 2. Citations are on the brief, and rejected quotes are marked so you can see what we threw out.",
+        "createdAt": "2026-11-27T06:55:45.959Z"
+      }
+    },
+    {
+      "type": "brief",
+      "brief": {
+        "question": "What does the latest evidence say about LLM hallucination fixes?",
+        "mode": "demo",
+        "provider": "recording",
+        "answer": "The fetched pages support a narrow reading. Learn how to reduce LLM hallucinations with proven techniques like RAG, prompt engineering, and verification to keep AI output accurate and reliable. Learn 7 proven techniques to reduce LLM hallucinations and verify output accuracy - from temperature settings and RAG to verification checklists. Discover the latest strategies to address LLM hallucinations effectively, boosting model accuracy and reliability. The Skeptic held this back: The titles sit close to the question. I still want the quotes checked before anyone writes a verdict. They do not, on their own, close the question.",
+        "markdown": "# What does the latest evidence say about LLM hallucination fixes?\n\n## Short answer\nThe fetched pages support a narrow reading. Learn how to reduce LLM hallucinations with proven techniques like RAG, prompt engineering, and verification to keep AI output accurate and reliable. Learn 7 proven techniques to reduce LLM hallucinations and verify output accuracy - from temperature settings and RAG to verification checklists. Discover the latest strategies to address LLM hallucinations effectively, boosting model accuracy and reliability. The Skeptic held this back: The titles sit close to the question. I still want the quotes checked before anyone writes a verdict. They do not, on their own, close the question.\n\n## What the sources support\n- Learn how to reduce LLM hallucinations with proven techniques like RAG, prompt engineering, and verification to keep AI output accurate and reliable. ([c1](https://www.guvi.in/blog/how-to-reduce-llm-hallucinations/))\n- Learn 7 proven techniques to reduce LLM hallucinations and verify output accuracy - from temperature settings and RAG to verification checklists. ([c2](https://llmguides.ai/learn/reduce-hallucinations/))\n- Discover the latest strategies to address LLM hallucinations effectively, boosting model accuracy and reliability. ([c3](https://www.turing.com/resources/minimize-llm-hallucinations-strategy))\n- In October and November 2024, using popular LLMs like OpenAI ChatGPT (4 and below), Azure OpenAI and its Copilot instantiations, Google Gemini and GenAI LLM tuned for scientific papers like Zendy, asking a question and… ([c4](https://doi.org/10.31219/osf.io/u38w4))\n- In this paper, we present HALLUCANA, a canary lookahead to detect and correct factual hallucinations of Large Language Models (LLMs) in long-form generation. ([c5](https://doi.org/10.18653/v1/2025.findings-naacl.12))\n\n## What they do not support\n- The titles sit close to the question. I still want the quotes checked before anyone writes a verdict.\n\n## Confidence\n90 / 100. The score is the share of quotes that matched fetched text, with a penalty when the packet is thin. It is not a probability that a decision will work.\n\n## Open questions\n- Which of these results have been replicated, and which are a single paper.\n- What would change the brief if it showed up next week.\n\n## Sources\n1. How to Reduce LLM Hallucinations: Proven Fixes (2026) - guvi.in (web, verified). https://www.guvi.in/blog/how-to-reduce-llm-hallucinations/\n2. How to Reduce Hallucinations in LLM Outputs - LLM Guides (web, verified). https://llmguides.ai/learn/reduce-hallucinations/\n3. Key Strategies to Minimize LLM Hallucinations: Expert Insights - Turing (web, verified). https://www.turing.com/resources/minimize-llm-hallucinations-strategy\n4. Fixing Reference Hallucinations of LLMs (OpenAlex, verified). https://doi.org/10.31219/osf.io/u38w4\n5. HALLUCANA: Fixing LLM Hallucination with A Canary Lookahead (OpenAlex, verified). https://doi.org/10.18653/v1/2025.findings-naacl.12\n\nKeyless gather. Public sources, extractive brief, no model call.",
+        "confidence": 90,
+        "openQuestions": [
+          "Which of these results have been replicated, and which are a single paper.",
+          "What would change the brief if it showed up next week."
+        ],
+        "citations": [
+          {
+            "id": "c1",
+            "title": "How to Reduce LLM Hallucinations: Proven Fixes (2026) - guvi.in",
+            "url": "https://www.guvi.in/blog/how-to-reduce-llm-hallucinations/",
+            "kind": "web",
+            "excerpt": "Learn how to reduce LLM hallucinations with proven techniques like RAG, prompt engineering, and verification to keep AI output accurate and reliable.",
+            "status": "verified"
+          },
+          {
+            "id": "c2",
+            "title": "How to Reduce Hallucinations in LLM Outputs - LLM Guides",
+            "url": "https://llmguides.ai/learn/reduce-hallucinations/",
+            "kind": "web",
+            "excerpt": "Learn 7 proven techniques to reduce LLM hallucinations and verify output accuracy - from temperature settings and RAG to verification checklists.",
+            "status": "verified"
+          },
+          {
+            "id": "c3",
+            "title": "Key Strategies to Minimize LLM Hallucinations: Expert Insights - Turing",
+            "url": "https://www.turing.com/resources/minimize-llm-hallucinations-strategy",
+            "kind": "web",
+            "excerpt": "Discover the latest strategies to address LLM hallucinations effectively, boosting model accuracy and reliability. Our guide provides a detailed approach to overcoming common LLM challenges.",
+            "status": "verified"
+          },
+          {
+            "id": "c4",
+            "title": "Fixing Reference Hallucinations of LLMs",
+            "url": "https://doi.org/10.31219/osf.io/u38w4",
+            "kind": "openalex",
+            "excerpt": "In October and November 2024, using popular LLMs like OpenAI ChatGPT (4 and below), Azure OpenAI and its Copilot instantiations, Google Gemini and GenAI LLM tuned for scientific papers like Zendy, asking a question and references produces with every LLM fake references, well constructed, but with different titles or authors than the web or journal reference actually associated to the citation, or sometimes totally i…",
+            "status": "verified"
+          },
+          {
+            "id": "c5",
+            "title": "HALLUCANA: Fixing LLM Hallucination with A Canary Lookahead",
+            "url": "https://doi.org/10.18653/v1/2025.findings-naacl.12",
+            "kind": "openalex",
+            "excerpt": "In this paper, we present HALLUCANA, a canary lookahead to detect and correct factual hallucinations of Large Language Models (LLMs) in long-form generation. HALLUCANA detects and intervenes as soon as traces of hallucination emerge, during and even before generation. To support timely detection, we exploit the internal factuality representation in the LLM hidden space, where we investigate various proxies to the LL…",
+            "status": "verified"
+          }
+        ],
+        "capturedAt": "2026-11-27T06:55:45.959Z"
+      }
+    }
+  ],
+  "brief": {
+    "question": "What does the latest evidence say about LLM hallucination fixes?",
+    "mode": "demo",
+    "provider": "recording",
+    "answer": "The fetched pages support a narrow reading. Learn how to reduce LLM hallucinations with proven techniques like RAG, prompt engineering, and verification to keep AI output accurate and reliable. Learn 7 proven techniques to reduce LLM hallucinations and verify output accuracy - from temperature settings and RAG to verification checklists. Discover the latest strategies to address LLM hallucinations effectively, boosting model accuracy and reliability. The Skeptic held this back: The titles sit close to the question. I still want the quotes checked before anyone writes a verdict. They do not, on their own, close the question.",
+    "markdown": "# What does the latest evidence say about LLM hallucination fixes?\n\n## Short answer\nThe fetched pages support a narrow reading. Learn how to reduce LLM hallucinations with proven techniques like RAG, prompt engineering, and verification to keep AI output accurate and reliable. Learn 7 proven techniques to reduce LLM hallucinations and verify output accuracy - from temperature settings and RAG to verification checklists. Discover the latest strategies to address LLM hallucinations effectively, boosting model accuracy and reliability. The Skeptic held this back: The titles sit close to the question. I still want the quotes checked before anyone writes a verdict. They do not, on their own, close the question.\n\n## What the sources support\n- Learn how to reduce LLM hallucinations with proven techniques like RAG, prompt engineering, and verification to keep AI output accurate and reliable. ([c1](https://www.guvi.in/blog/how-to-reduce-llm-hallucinations/))\n- Learn 7 proven techniques to reduce LLM hallucinations and verify output accuracy - from temperature settings and RAG to verification checklists. ([c2](https://llmguides.ai/learn/reduce-hallucinations/))\n- Discover the latest strategies to address LLM hallucinations effectively, boosting model accuracy and reliability. ([c3](https://www.turing.com/resources/minimize-llm-hallucinations-strategy))\n- In October and November 2024, using popular LLMs like OpenAI ChatGPT (4 and below), Azure OpenAI and its Copilot instantiations, Google Gemini and GenAI LLM tuned for scientific papers like Zendy, asking a question and… ([c4](https://doi.org/10.31219/osf.io/u38w4))\n- In this paper, we present HALLUCANA, a canary lookahead to detect and correct factual hallucinations of Large Language Models (LLMs) in long-form generation. ([c5](https://doi.org/10.18653/v1/2025.findings-naacl.12))\n\n## What they do not support\n- The titles sit close to the question. I still want the quotes checked before anyone writes a verdict.\n\n## Confidence\n90 / 100. The score is the share of quotes that matched fetched text, with a penalty when the packet is thin. It is not a probability that a decision will work.\n\n## Open questions\n- Which of these results have been replicated, and which are a single paper.\n- What would change the brief if it showed up next week.\n\n## Sources\n1. How to Reduce LLM Hallucinations: Proven Fixes (2026) - guvi.in (web, verified). https://www.guvi.in/blog/how-to-reduce-llm-hallucinations/\n2. How to Reduce Hallucinations in LLM Outputs - LLM Guides (web, verified). https://llmguides.ai/learn/reduce-hallucinations/\n3. Key Strategies to Minimize LLM Hallucinations: Expert Insights - Turing (web, verified). https://www.turing.com/resources/minimize-llm-hallucinations-strategy\n4. Fixing Reference Hallucinations of LLMs (OpenAlex, verified). https://doi.org/10.31219/osf.io/u38w4\n5. HALLUCANA: Fixing LLM Hallucination with A Canary Lookahead (OpenAlex, verified). https://doi.org/10.18653/v1/2025.findings-naacl.12\n\nKeyless gather. Public sources, extractive brief, no model call.",
+    "confidence": 90,
+    "openQuestions": [
+      "Which of these results have been replicated, and which are a single paper.",
+      "What would change the brief if it showed up next week."
+    ],
+    "citations": [
+      {
+        "id": "c1",
+        "title": "How to Reduce LLM Hallucinations: Proven Fixes (2026) - guvi.in",
+        "url": "https://www.guvi.in/blog/how-to-reduce-llm-hallucinations/",
+        "kind": "web",
+        "excerpt": "Learn how to reduce LLM hallucinations with proven techniques like RAG, prompt engineering, and verification to keep AI output accurate and reliable.",
+        "status": "verified"
+      },
+      {
+        "id": "c2",
+        "title": "How to Reduce Hallucinations in LLM Outputs - LLM Guides",
+        "url": "https://llmguides.ai/learn/reduce-hallucinations/",
+        "kind": "web",
+        "excerpt": "Learn 7 proven techniques to reduce LLM hallucinations and verify output accuracy - from temperature settings and RAG to verification checklists.",
+        "status": "verified"
+      },
+      {
+        "id": "c3",
+        "title": "Key Strategies to Minimize LLM Hallucinations: Expert Insights - Turing",
+        "url": "https://www.turing.com/resources/minimize-llm-hallucinations-strategy",
+        "kind": "web",
+        "excerpt": "Discover the latest strategies to address LLM hallucinations effectively, boosting model accuracy and reliability. Our guide provides a detailed approach to overcoming common LLM challenges.",
+        "status": "verified"
+      },
+      {
+        "id": "c4",
+        "title": "Fixing Reference Hallucinations of LLMs",
+        "url": "https://doi.org/10.31219/osf.io/u38w4",
+        "kind": "openalex",
+        "excerpt": "In October and November 2024, using popular LLMs like OpenAI ChatGPT (4 and below), Azure OpenAI and its Copilot instantiations, Google Gemini and GenAI LLM tuned for scientific papers like Zendy, asking a question and references produces with every LLM fake references, well constructed, but with different titles or authors than the web or journal reference actually associated to the citation, or sometimes totally i…",
+        "status": "verified"
+      },
+      {
+        "id": "c5",
+        "title": "HALLUCANA: Fixing LLM Hallucination with A Canary Lookahead",
+        "url": "https://doi.org/10.18653/v1/2025.findings-naacl.12",
+        "kind": "openalex",
+        "excerpt": "In this paper, we present HALLUCANA, a canary lookahead to detect and correct factual hallucinations of Large Language Models (LLMs) in long-form generation. HALLUCANA detects and intervenes as soon as traces of hallucination emerge, during and even before generation. To support timely detection, we exploit the internal factuality representation in the LLM hidden space, where we investigate various proxies to the LL…",
+        "status": "verified"
+      }
+    ],
+    "capturedAt": "2026-11-27T06:55:45.959Z"
+  }
+}

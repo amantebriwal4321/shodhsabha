@@ -1,0 +1,190 @@
+{
+  "id": "cloud-kitchen",
+  "question": "Is it worth opening a cloud kitchen in Koramangala?",
+  "capturedAt": "2026-11-27T06:56:05.964Z",
+  "label": "Recorded run. Keyless gather over arXiv, OpenAlex, Wikipedia, and DuckDuckGo. No model call.",
+  "events": [
+    {
+      "type": "meta",
+      "mode": "keyless",
+      "provider": "none",
+      "label": "Keyless gather. Public sources, no model call.",
+      "question": "Is it worth opening a cloud kitchen in Koramangala?"
+    },
+    {
+      "type": "message",
+      "message": {
+        "messageId": "0ef2ee7d-24f6-4f40-b6cb-6ad31e7a645b",
+        "contextId": "a316a4a8-df04-4327-a5d7-732ac35222b1",
+        "taskId": "planner->web_scout",
+        "from": "planner",
+        "to": "web_scout",
+        "kind": "task",
+        "text": "Question in the sabha: \"Is it worth opening a cloud kitchen in Koramangala?\"\n\nI am splitting it into three lines, and I want quotes, not a vibe.\nLine A, scope. What would even count as an answer.\nLine B, evidence. Papers and reference pages, each with a URL.\nLine C, limits. What a page fails to show.\n\nWeb Scout, take the open web for A and C.\nPaper Scout, take arXiv and OpenAlex for B.\nDo not upgrade a snippet into a verdict. Skeptic gets the next word.",
+        "createdAt": "2026-11-27T06:55:45.960Z"
+      }
+    },
+    {
+      "type": "message",
+      "message": {
+        "messageId": "f668fec8-9ee9-4ca7-8688-5b810a43a054",
+        "contextId": "a316a4a8-df04-4327-a5d7-732ac35222b1",
+        "taskId": "web_scout->skeptic",
+        "from": "web_scout",
+        "to": "skeptic",
+        "kind": "finding",
+        "text": "Web Scout: I pulled 4 sources. These are claims, not a conclusion.\n[1] Ola Consumer (Wikipedia)\nhttps://en.wikipedia.org/wiki/Ola_Consumer\n\"Ola Consumer, formerly Ola Cabs, is an Indian transportation company that provides ride-hailing services and operates other business verticals such as financial services and cloud kitchens. It is headquartered in Bangalore and operates in 250+ Indian cities.\"\n[2] Cloud Kitchen, Koramangala 5th Block, Bangalore | Restaurant (web)\nhttps://magicpin.in/Bangalore/Koramangala-5th-Block/Restaurant/Cloud-Kitchen/store/1634b73\n\"Cloud Kitchen in Koramangala 5th Block, Bangalore: Restaurant, ₹200 for two. See menu, photos, reviews & offers on magicpin.\"\n[3] Cloud Kitchens in Koramangala, Bangalore — Near Me (web)\nhttps://cloudkitchenadda.com/cloud-kitchens/bangalore/koramangala\n\"FSSAI-verified cloud kitchens delivering in Koramangala , Bangalore. Compare cuisines, ratings and order on Swiggy, Zomato, Magicpin or WhatsApp.\"\n[4] High on Food (Cloud Kitchen) | Koramangala, Bangalore | Order… (web)\nhttps://cloudkitchenadda.com/kitchens/6a6f2256-eef4-494f-90f2-313aabeb4ccc\n\"High on Food ( Cloud Kitchen ) | Koramangala in Bangalore: Order via WhatsApp, Zomato, Swiggy, Magicpin. Explore Multi-cuisine cuisine, a 4.8/5 rating.\"\nPacket is ready for the Skeptic.",
+        "createdAt": "2026-11-27T06:56:05.963Z"
+      }
+    },
+    {
+      "type": "message",
+      "message": {
+        "messageId": "4b229de7-d59c-4c39-9f03-ef1486f9c47e",
+        "contextId": "a316a4a8-df04-4327-a5d7-732ac35222b1",
+        "taskId": "paper_scout->skeptic",
+        "from": "paper_scout",
+        "to": "skeptic",
+        "kind": "finding",
+        "text": "Paper Scout: I came back empty.\narXiv unavailable (The operation was aborted due to timeout). Paper Scout dropped hits that did not share the question's words.",
+        "createdAt": "2026-11-27T06:56:05.963Z"
+      }
+    },
+    {
+      "type": "message",
+      "message": {
+        "messageId": "a04b4ffa-9104-439f-8874-11dbe9cc58f0",
+        "contextId": "a316a4a8-df04-4327-a5d7-732ac35222b1",
+        "taskId": "skeptic->fact_checker",
+        "from": "skeptic",
+        "to": "fact_checker",
+        "kind": "challenge",
+        "text": "Holding the claims up to the question.\n\nThe titles sit close to the question. I still want the quotes checked before anyone writes a verdict.\n\nFact-checker, verify the quotes before the Scribe writes.",
+        "createdAt": "2026-11-27T06:56:05.963Z"
+      }
+    },
+    {
+      "type": "message",
+      "message": {
+        "messageId": "fdccbf50-83e3-4d48-a24c-2220023437c6",
+        "contextId": "a316a4a8-df04-4327-a5d7-732ac35222b1",
+        "taskId": "fact_checker->scribe",
+        "from": "fact_checker",
+        "to": "scribe",
+        "kind": "verdict",
+        "text": "Quote check against the fetched text.\n\nc1 verified. Excerpt is inside the fetched text. Ola Consumer.\nc2 verified. Excerpt is inside the fetched text. Cloud Kitchen, Koramangala 5th Block, Bangalore | Restaurant.\nc3 verified. Excerpt is inside the fetched text. Cloud Kitchens in Koramangala, Bangalore — Near Me.\nc4 verified. Excerpt is inside the fetched text. High on Food (Cloud Kitchen) | Koramangala, Bangalore | Order….\n\nVerified 4, partial 0, rejected 0.\nScribe, cite verified and partial only. Rejected quotes stay out of the brief.",
+        "createdAt": "2026-11-27T06:56:05.963Z"
+      }
+    },
+    {
+      "type": "message",
+      "message": {
+        "messageId": "3ffa02ad-e703-45ab-bbeb-af29746af93c",
+        "contextId": "a316a4a8-df04-4327-a5d7-732ac35222b1",
+        "taskId": "scribe->user",
+        "from": "scribe",
+        "to": "user",
+        "kind": "brief",
+        "text": "Brief is in. Confidence 72 out of 100, from the quote check, not from my mood.\n\nThe fetched pages support a narrow reading. Ola Consumer, formerly Ola Cabs, is an Indian transportation company that provides ride-hailing services and operates other business verticals such as financial services and cloud kitchens. Cloud Kitchen in Koramangala 5th Block, Bangalore: Restaurant, ₹200 for two. FSSAI-verified cloud kitchens delivering in Koramangala , Bangalore. The Skeptic held this back: The titles sit close to the question. I still want the quotes checked before anyone writes a verdict. They do not, on their own, close the question.\n\nOpen questions: 2. Citations are on the brief, and rejected quotes are marked so you can see what we threw out.",
+        "createdAt": "2026-11-27T06:56:05.964Z"
+      }
+    },
+    {
+      "type": "brief",
+      "brief": {
+        "question": "Is it worth opening a cloud kitchen in Koramangala?",
+        "mode": "demo",
+        "provider": "recording",
+        "answer": "The fetched pages support a narrow reading. Ola Consumer, formerly Ola Cabs, is an Indian transportation company that provides ride-hailing services and operates other business verticals such as financial services and cloud kitchens. Cloud Kitchen in Koramangala 5th Block, Bangalore: Restaurant, ₹200 for two. FSSAI-verified cloud kitchens delivering in Koramangala , Bangalore. The Skeptic held this back: The titles sit close to the question. I still want the quotes checked before anyone writes a verdict. They do not, on their own, close the question.",
+        "markdown": "# Is it worth opening a cloud kitchen in Koramangala?\n\n## Short answer\nThe fetched pages support a narrow reading. Ola Consumer, formerly Ola Cabs, is an Indian transportation company that provides ride-hailing services and operates other business verticals such as financial services and cloud kitchens. Cloud Kitchen in Koramangala 5th Block, Bangalore: Restaurant, ₹200 for two. FSSAI-verified cloud kitchens delivering in Koramangala , Bangalore. The Skeptic held this back: The titles sit close to the question. I still want the quotes checked before anyone writes a verdict. They do not, on their own, close the question.\n\n## What the sources support\n- Ola Consumer, formerly Ola Cabs, is an Indian transportation company that provides ride-hailing services and operates other business verticals such as financial services and cloud kitchens. ([c1](https://en.wikipedia.org/wiki/Ola_Consumer))\n- Cloud Kitchen in Koramangala 5th Block, Bangalore: Restaurant, ₹200 for two. ([c2](https://magicpin.in/Bangalore/Koramangala-5th-Block/Restaurant/Cloud-Kitchen/store/1634b73))\n- FSSAI-verified cloud kitchens delivering in Koramangala , Bangalore. ([c3](https://cloudkitchenadda.com/cloud-kitchens/bangalore/koramangala))\n- High on Food ( Cloud Kitchen ) | Koramangala in Bangalore: Order via WhatsApp, Zomato, Swiggy, Magicpin. ([c4](https://cloudkitchenadda.com/kitchens/6a6f2256-eef4-494f-90f2-313aabeb4ccc))\n\n## What they do not support\n- The titles sit close to the question. I still want the quotes checked before anyone writes a verdict.\n\n## Confidence\n72 / 100. The score is the share of quotes that matched fetched text, with a penalty when the packet is thin. It is not a probability that a decision will work.\n\n## Open questions\n- Rent, ticket size, and whether the kitchen makes money are not in these pages.\n- What would change the brief if it showed up next week.\n\n## Sources\n1. Ola Consumer (Wikipedia, verified). https://en.wikipedia.org/wiki/Ola_Consumer\n2. Cloud Kitchen, Koramangala 5th Block, Bangalore | Restaurant (web, verified). https://magicpin.in/Bangalore/Koramangala-5th-Block/Restaurant/Cloud-Kitchen/store/1634b73\n3. Cloud Kitchens in Koramangala, Bangalore — Near Me (web, verified). https://cloudkitchenadda.com/cloud-kitchens/bangalore/koramangala\n4. High on Food (Cloud Kitchen) | Koramangala, Bangalore | Order… (web, verified). https://cloudkitchenadda.com/kitchens/6a6f2256-eef4-494f-90f2-313aabeb4ccc\n\nKeyless gather. Public sources, extractive brief, no model call.",
+        "confidence": 72,
+        "openQuestions": [
+          "Rent, ticket size, and whether the kitchen makes money are not in these pages.",
+          "What would change the brief if it showed up next week."
+        ],
+        "citations": [
+          {
+            "id": "c1",
+            "title": "Ola Consumer",
+            "url": "https://en.wikipedia.org/wiki/Ola_Consumer",
+            "kind": "wikipedia",
+            "excerpt": "Ola Consumer, formerly Ola Cabs, is an Indian transportation company that provides ride-hailing services and operates other business verticals such as financial services and cloud kitchens. It is headquartered in Bangalore and operates in 250+ Indian cities.",
+            "status": "verified"
+          },
+          {
+            "id": "c2",
+            "title": "Cloud Kitchen, Koramangala 5th Block, Bangalore | Restaurant",
+            "url": "https://magicpin.in/Bangalore/Koramangala-5th-Block/Restaurant/Cloud-Kitchen/store/1634b73",
+            "kind": "web",
+            "excerpt": "Cloud Kitchen in Koramangala 5th Block, Bangalore: Restaurant, ₹200 for two. See menu, photos, reviews & offers on magicpin.",
+            "status": "verified"
+          },
+          {
+            "id": "c3",
+            "title": "Cloud Kitchens in Koramangala, Bangalore — Near Me",
+            "url": "https://cloudkitchenadda.com/cloud-kitchens/bangalore/koramangala",
+            "kind": "web",
+            "excerpt": "FSSAI-verified cloud kitchens delivering in Koramangala , Bangalore. Compare cuisines, ratings and order on Swiggy, Zomato, Magicpin or WhatsApp.",
+            "status": "verified"
+          },
+          {
+            "id": "c4",
+            "title": "High on Food (Cloud Kitchen) | Koramangala, Bangalore | Order…",
+            "url": "https://cloudkitchenadda.com/kitchens/6a6f2256-eef4-494f-90f2-313aabeb4ccc",
+            "kind": "web",
+            "excerpt": "High on Food ( Cloud Kitchen ) | Koramangala in Bangalore: Order via WhatsApp, Zomato, Swiggy, Magicpin. Explore Multi-cuisine cuisine, a 4.8/5 rating.",
+            "status": "verified"
+          }
+        ],
+        "capturedAt": "2026-11-27T06:56:05.964Z"
+      }
+    }
+  ],
+  "brief": {
+    "question": "Is it worth opening a cloud kitchen in Koramangala?",
+    "mode": "demo",
+    "provider": "recording",
+    "answer": "The fetched pages support a narrow reading. Ola Consumer, formerly Ola Cabs, is an Indian transportation company that provides ride-hailing services and operates other business verticals such as financial services and cloud kitchens. Cloud Kitchen in Koramangala 5th Block, Bangalore: Restaurant, ₹200 for two. FSSAI-verified cloud kitchens delivering in Koramangala , Bangalore. The Skeptic held this back: The titles sit close to the question. I still want the quotes checked before anyone writes a verdict. They do not, on their own, close the question.",
+    "markdown": "# Is it worth opening a cloud kitchen in Koramangala?\n\n## Short answer\nThe fetched pages support a narrow reading. Ola Consumer, formerly Ola Cabs, is an Indian transportation company that provides ride-hailing services and operates other business verticals such as financial services and cloud kitchens. Cloud Kitchen in Koramangala 5th Block, Bangalore: Restaurant, ₹200 for two. FSSAI-verified cloud kitchens delivering in Koramangala , Bangalore. The Skeptic held this back: The titles sit close to the question. I still want the quotes checked before anyone writes a verdict. They do not, on their own, close the question.\n\n## What the sources support\n- Ola Consumer, formerly Ola Cabs, is an Indian transportation company that provides ride-hailing services and operates other business verticals such as financial services and cloud kitchens. ([c1](https://en.wikipedia.org/wiki/Ola_Consumer))\n- Cloud Kitchen in Koramangala 5th Block, Bangalore: Restaurant, ₹200 for two. ([c2](https://magicpin.in/Bangalore/Koramangala-5th-Block/Restaurant/Cloud-Kitchen/store/1634b73))\n- FSSAI-verified cloud kitchens delivering in Koramangala , Bangalore. ([c3](https://cloudkitchenadda.com/cloud-kitchens/bangalore/koramangala))\n- High on Food ( Cloud Kitchen ) | Koramangala in Bangalore: Order via WhatsApp, Zomato, Swiggy, Magicpin. ([c4](https://cloudkitchenadda.com/kitchens/6a6f2256-eef4-494f-90f2-313aabeb4ccc))\n\n## What they do not support\n- The titles sit close to the question. I still want the quotes checked before anyone writes a verdict.\n\n## Confidence\n72 / 100. The score is the share of quotes that matched fetched text, with a penalty when the packet is thin. It is not a probability that a decision will work.\n\n## Open questions\n- Rent, ticket size, and whether the kitchen makes money are not in these pages.\n- What would change the brief if it showed up next week.\n\n## Sources\n1. Ola Consumer (Wikipedia, verified). https://en.wikipedia.org/wiki/Ola_Consumer\n2. Cloud Kitchen, Koramangala 5th Block, Bangalore | Restaurant (web, verified). https://magicpin.in/Bangalore/Koramangala-5th-Block/Restaurant/Cloud-Kitchen/store/1634b73\n3. Cloud Kitchens in Koramangala, Bangalore — Near Me (web, verified). https://cloudkitchenadda.com/cloud-kitchens/bangalore/koramangala\n4. High on Food (Cloud Kitchen) | Koramangala, Bangalore | Order… (web, verified). https://cloudkitchenadda.com/kitchens/6a6f2256-eef4-494f-90f2-313aabeb4ccc\n\nKeyless gather. Public sources, extractive brief, no model call.",
+    "confidence": 72,
+    "openQuestions": [
+      "Rent, ticket size, and whether the kitchen makes money are not in these pages.",
+      "What would change the brief if it showed up next week."
+    ],
+    "citations": [
+      {
+        "id": "c1",
+        "title": "Ola Consumer",
+        "url": "https://en.wikipedia.org/wiki/Ola_Consumer",
+        "kind": "wikipedia",
+        "excerpt": "Ola Consumer, formerly Ola Cabs, is an Indian transportation company that provides ride-hailing services and operates other business verticals such as financial services and cloud kitchens. It is headquartered in Bangalore and operates in 250+ Indian cities.",
+        "status": "verified"
+      },
+      {
+        "id": "c2",
+        "title": "Cloud Kitchen, Koramangala 5th Block, Bangalore | Restaurant",
+        "url": "https://magicpin.in/Bangalore/Koramangala-5th-Block/Restaurant/Cloud-Kitchen/store/1634b73",
+        "kind": "web",
+        "excerpt": "Cloud Kitchen in Koramangala 5th Block, Bangalore: Restaurant, ₹200 for two. See menu, photos, reviews & offers on magicpin.",
+        "status": "verified"
+      },
+      {
+        "id": "c3",
+        "title": "Cloud Kitchens in Koramangala, Bangalore — Near Me",
+        "url": "https://cloudkitchenadda.com/cloud-kitchens/bangalore/koramangala",
+        "kind": "web",
+        "excerpt": "FSSAI-verified cloud kitchens delivering in Koramangala , Bangalore. Compare cuisines, ratings and order on Swiggy, Zomato, Magicpin or WhatsApp.",
+        "status": "verified"
+      },
+      {
+        "id": "c4",
+        "title": "High on Food (Cloud Kitchen) | Koramangala, Bangalore | Order…",
+        "url": "https://cloudkitchenadda.com/kitchens/6a6f2256-eef4-494f-90f2-313aabeb4ccc",
+        "kind": "web",
+        "excerpt": "High on Food ( Cloud Kitchen ) | Koramangala in Bangalore: Order via WhatsApp, Zomato, Swiggy, Magicpin. Explore Multi-cuisine cuisine, a 4.8/5 rating.",
+        "status": "verified"
+      }
+    ],
+    "capturedAt": "2026-11-27T06:56:05.964Z"
+  }
+}

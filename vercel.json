@@ -1,0 +1,6 @@
+{
+  "functions": {
+    "app/api/sabha/route.ts": { "maxDuration": 60 },
+    "app/api/finch/invoke/route.ts": { "maxDuration": 60 }
+  }
+}

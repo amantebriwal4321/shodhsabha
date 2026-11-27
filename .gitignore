@@ -1,0 +1,16 @@
+node_modules
+.next
+out
+.env
+.env.local
+agent_config.yaml
+*.log
+.DS_Store
+demo/raw
+demo/voice.mp3
+demo/voice.vtt
+demo/captions.srt
+tsconfig.tsbuildinfo
+next-env.d.ts
+playwright-report
+test-results
